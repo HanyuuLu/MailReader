@@ -76,9 +76,12 @@ namespace MailReader
                                     From = msg.Sender.Email,
                                     To = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.To, false, false),
                                     Subject = msg.Subject,
-                                    Body = msg.BodyText
-
+                                    Body = msg.BodyText,
                                 };
+                                foreach(var attachment in msg.Attachments)
+                                {
+                                    rec.Attachments.Add(attachment.ToString());
+                                }
                                 res.Add(rec);
                                 break;
                             }
@@ -100,6 +103,10 @@ namespace MailReader
                                     }
                                     rec.To = toList.ToString();
                                     rec.From = eml.Headers.From.Address;
+                                    foreach(var attachment in eml.Attachments)
+                                    {
+                                        rec.Attachments.Add(attachment.Body.ToString());
+                                    }
                                 }
                                 rec.Subject = eml.Headers.Subject;
                                 if (eml.TextBody != null)
@@ -132,9 +139,9 @@ namespace MailReader
                 var text = JsonConvert.SerializeObject(res);
                 File.WriteAllText("result.json", text);
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("写入文件失败", "MailReader", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"写入文件失败\n{e.Message}\n{e.StackTrace}", "MailReader", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

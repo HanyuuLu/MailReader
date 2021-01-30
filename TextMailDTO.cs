@@ -15,7 +15,7 @@ namespace MailReader
 
         public override string ToString()
         {
-            return $"From:{From};To:{To};Subject:{Subject};Body:{Body};Attachments:{Attachments}";
+            return $"From:{From};\nTo:{To};\nSubject:{Subject};\nBody:{Body};\nAttachments:{Attachments}";
         }
     }
 }
