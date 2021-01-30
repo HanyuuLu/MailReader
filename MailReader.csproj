@@ -2,11 +2,24 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Authors>Hanyuu Lu</Authors>
+    <Company>Hanyuu Lu's studio</Company>
+    <NeutralLanguage>CN</NeutralLanguage>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>true</DelaySign>
+    <AssemblyOriginatorKeyFile>secrect.pfx</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
+    <StartupObject>MailReader.App</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="MsgReader" Version="3.11.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>

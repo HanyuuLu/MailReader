@@ -6,16 +6,17 @@
         xmlns:local="clr-namespace:MailReader"
         mc:Ignorable="d"
         Title="MailReader" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40px"></ColumnDefinition>
-            <ColumnDefinition Width="200" MinWidth="100px"></ColumnDefinition>
+            <ColumnDefinition Width="300px" MinWidth="100px"></ColumnDefinition>
             <ColumnDefinition Width="60" MaxWidth="60px"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto" MaxHeight="300px"></RowDefinition>
-            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto" MaxHeight="300px"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Name="HeadLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="选取文件列表"></Label>

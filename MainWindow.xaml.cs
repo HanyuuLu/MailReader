@@ -26,7 +26,7 @@ namespace MailReader
         /// <summary>
         /// 
         /// </summary>
-        public static IList<string> MailFilePathList = new List<string>();
+        private static IList<string> MailFilePathList = new List<string>();
 
         public MainWindow()
         {
