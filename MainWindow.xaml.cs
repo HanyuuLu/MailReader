@@ -21,7 +21,7 @@ namespace MailReader
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         /// <summary>
         /// 
@@ -120,6 +120,7 @@ namespace MailReader
 
                 }
             }
+            ResultLabel.Content = $"已解析 {res.Count} 项";
             ResultList.Items.Clear();
             foreach (var item in res)
             {

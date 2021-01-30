@@ -1,35 +1,41 @@
-﻿<Window x:Class="MailReader.MainWindow"
+﻿<fw:AcrylicWindow 
+        x:Class="MailReader.MainWindow"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailReader"
         mc:Ignorable="d"
-        Title="MailReader" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
+        AcrylicWindowStyle="NoIcon"
+        Title="MailReader" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
 
-    <Grid>
+    <Grid fw:PointerTracker.Enabled="True" Margin="12px">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40px"></ColumnDefinition>
-            <ColumnDefinition Width="300px" MinWidth="100px"></ColumnDefinition>
-            <ColumnDefinition Width="60" MaxWidth="60px"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" MinWidth="100px" MaxWidth="800px"></ColumnDefinition>
+            <ColumnDefinition Width="60px" MaxWidth="60px"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto" MaxHeight="300px"></RowDefinition>
+            <RowDefinition Height="4px"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto" MaxHeight="300px"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Name="HeadLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="选取文件列表"></Label>
-        <Button Grid.Row="0" Grid.Column="2" Content="选择" Click="Button_Click_Import"></Button>
+        <Label Name="HeadLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="选取文件列表" Foreground="{DynamicResource SystemBaseHighColorBrush}"></Label>
+        <Button Grid.Row="0" Grid.Column="2" Content="选择" Click="Button_Click_Import" Style="{StaticResource ButtonRevealStyle}"></Button>
         <ScrollViewer Name="FileNameListScrollViewer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" MaxWidth="500px" MaxHeight="300px" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" PreviewMouseWheel="FileNameListScrollViewer_PreviewMouseWheel">
-            <ListBox x:Name="FileNameList">
-                <ListBoxItem Content="空空如也~"></ListBoxItem>
+            <ListBox x:Name="FileNameList" Style="{StaticResource ListBoxRevealStyle}">
+                <ListBoxItem Content=""></ListBoxItem>
             </ListBox>
         </ScrollViewer>
-        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="全部导出为json" Click="Button_Click_Output"></Button>
-        <ScrollViewer Name="ResultScrollViewer" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" MaxWidth="500px" MaxHeight="300px" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" PreviewMouseWheel="ResultScrollViewer_PreviewMouseWheel">
-            <ListBox x:Name="ResultList">
+        <Label Name="ResultLabel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="分析结果列表" Foreground="{DynamicResource SystemBaseHighColorBrush}"></Label>
+        <Button Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" Content="导出" Click="Button_Click_Output" Style="{StaticResource ButtonRevealStyle}"></Button>
+        <ScrollViewer Name="ResultScrollViewer" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" MaxWidth="500px" MaxHeight="300px" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" PreviewMouseWheel="ResultScrollViewer_PreviewMouseWheel">
+            <ListBox x:Name="ResultList" Style="{StaticResource ListBoxRevealStyle}">
+                <ListBoxItem Content=""></ListBoxItem>
             </ListBox>
         </ScrollViewer>
     </Grid>
-</Window>
+</fw:AcrylicWindow>
